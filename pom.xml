@@ -29,7 +29,7 @@
 	          			<manifest>
 	            			<addClasspath>true</addClasspath>
 	            			<classpathPrefix>lib/</classpathPrefix>
-	            			<mainClass></mainClass>
+	            			<mainClass>CalculatriceRPN</mainClass>
 	         			 </manifest>
         			</archive>
       			</configuration>
@@ -73,16 +73,6 @@
     	<artifactId>junit</artifactId>
     	<version>4.12</version>
    		<scope>test</scope>
-	</dependency>
-	<dependency>
-	  <groupId>org.slf4j</groupId>
-	  <artifactId>slf4j-api</artifactId>
-	  <version>1.7.2</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.slf4j</groupId>
-	  <artifactId>slf4j-log4j12</artifactId>
-	  <version>1.7.2</version>
 	</dependency>
   </dependencies>
   
