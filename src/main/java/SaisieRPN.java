@@ -15,14 +15,21 @@ public class SaisieRPN {
 		if (Pattern.matches("[-+]?[0-9]*\\.?[0-9]+", saisie)) {
 			this.moteur.addOperande(Double.parseDouble(saisie));
 		}
-		else if(saisie.equals("+") || saisie.equals("-") || saisie.equals("/") || saisie.equals("*") 
-				|| saisie.equals("undo") || saisie.equals("quit")) {
+		else if(saisie.equals("+") || saisie.equals("-") || saisie.equals("/") || saisie.equals("*") ) {
+			if(this.moteur.readyOp()) {			
+				this.moteur.executeCommand(saisie);
+			}
+			else {
+				System.out.println("Pas assez d'opérandes.");
+			}
+		}
+		else if(saisie.equals("undo") || saisie.equals("quit")) {
 			this.moteur.executeCommand(saisie);
+			
 		}
 		else {
 			System.out.println("Command inconnue: entrez une opérande (+,-,/,*), un nombre, 'quit' ou 'exit'.");
 		}
 		System.out.println("Pile: " + moteur.toString());
-		//System.out.println(moteur.toStringUndo());
 	}
 }

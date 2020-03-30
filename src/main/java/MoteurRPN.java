@@ -43,6 +43,18 @@ public class MoteurRPN extends Interpreteur {
 		});
 	}
 	
+	public boolean readyOp() {
+		if(this.stack.isEmpty()) {
+			return false;
+		}
+		double op1 = this.stack.pop();
+		if(this.stack.isEmpty()) {
+			this.stack.push(op1);
+			return false;
+		}
+		this.stack.push(op1);
+		return true;
+	}
 	public void addOperande(Double op) {
 		clearSave();
 		this.stack.push(op);
