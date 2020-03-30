@@ -29,7 +29,7 @@ public class Interpreteur {
 			this.stack = undoStack;
 			
 		});
-		i.addCommand("qui", () -> {
+		i.addCommand("quit", () -> {
 			System.out.println("Fin du programme.");
 			System.exit(0);
 		});
