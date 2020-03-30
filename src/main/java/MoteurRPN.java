@@ -11,19 +11,29 @@ public class MoteurRPN extends Interpreteur {
 			Double op1 = m.stack.pop();
 			Double op2 = m.stack.pop();
 			m.stack.push(op1 + op2);
-			System.out.println("test");
 		});
 		m.addCommand("-", () -> {
 			clearSave();
 			Double op1 = m.stack.pop();
-			Double op2 = m.stack.pop();
-			m.stack.push(op1 - op2);
+			Double op2 = m.stack.pop();				
+			m.stack.push(op1 - op2);	
+			
+			
 		});
 		m.addCommand("/", () -> {
-			clearSave();
-			Double op1 = m.stack.pop();
-			Double op2 = m.stack.pop();
-			m.stack.push(op1 / op2);
+			try {		
+				clearSave();
+				Double op1 = m.stack.pop();
+				Double op2 = m.stack.pop();
+				if(op2 == 0) {
+					m.stack.push(op2);
+					m.stack.push(op1);
+					throw new DivisionZeroException();
+				}				
+				else {
+					m.stack.push(op1 / op2);
+				}		
+			} catch (DivisionZeroException d) {}
 		});
 		m.addCommand("*", () -> {
 			clearSave();

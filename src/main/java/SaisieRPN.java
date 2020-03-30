@@ -20,9 +20,9 @@ public class SaisieRPN {
 			this.moteur.executeCommand(saisie);
 		}
 		else {
-			System.out.println("Command inconnue");
+			System.out.println("Command inconnue: entrez une opérande (+,-,/,*), un nombre, 'quit' ou 'exit'.");
 		}
-		System.out.println(moteur.toString());
-		System.out.println(moteur.toStringUndo());
+		System.out.println("Pile: " + moteur.toString());
+		//System.out.println(moteur.toStringUndo());
 	}
 }
