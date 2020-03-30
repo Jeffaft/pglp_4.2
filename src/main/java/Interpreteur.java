@@ -26,7 +26,9 @@ public class Interpreteur {
 	
 	public void init(Interpreteur i) {
 		i.addCommand("undo", () -> {
-			this.stack = undoStack;
+			this.stack.clear();
+			this.stack.addAll(this.undoStack);
+			
 			
 		});
 		i.addCommand("quit", () -> {

@@ -19,5 +19,10 @@ public class SaisieRPN {
 				|| saisie.equals("undo") || saisie.equals("quit")) {
 			this.moteur.executeCommand(saisie);
 		}
+		else {
+			System.out.println("Command inconnue");
+		}
+		System.out.println(moteur.toString());
+		System.out.println(moteur.toStringUndo());
 	}
 }

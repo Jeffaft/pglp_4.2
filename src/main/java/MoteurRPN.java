@@ -2,34 +2,31 @@
 public class MoteurRPN extends Interpreteur {
 	public MoteurRPN() {
 		super();
-	}
-	public static MoteurRPN init() {
-		MoteurRPN m = new MoteurRPN();
-		addCommands(m);
-		return m;
+		addCommands(this);
 	}
 	
-	public static void addCommands(MoteurRPN m) {
+	public void addCommands(MoteurRPN m) {
 		m.addCommand("+", () -> {
-			m.undoStack = m.stack;
+			clearSave();
 			Double op1 = m.stack.pop();
 			Double op2 = m.stack.pop();
 			m.stack.push(op1 + op2);
+			System.out.println("test");
 		});
 		m.addCommand("-", () -> {
-			m.undoStack = m.stack;
+			clearSave();
 			Double op1 = m.stack.pop();
 			Double op2 = m.stack.pop();
 			m.stack.push(op1 - op2);
 		});
 		m.addCommand("/", () -> {
-			m.undoStack = m.stack;
+			clearSave();
 			Double op1 = m.stack.pop();
 			Double op2 = m.stack.pop();
 			m.stack.push(op1 / op2);
 		});
 		m.addCommand("*", () -> {
-			m.undoStack = m.stack;
+			clearSave();
 			Double op1 = m.stack.pop();
 			Double op2 = m.stack.pop();
 			m.stack.push(op1 * op2);
@@ -37,11 +34,18 @@ public class MoteurRPN extends Interpreteur {
 	}
 	
 	public void addOperande(Double op) {
+		clearSave();
 		this.stack.push(op);
-		this.undoStack.push(op);
-		}
-	
+	}
+	public void clearSave() {
+		this.undoStack.clear();
+		this.undoStack.addAll(this.stack);
+	}
 	public String toString() {
 		return this.stack.toString();
+	}
+	
+	public String toStringUndo() {
+		return this.undoStack.toString();
 	}
 }
