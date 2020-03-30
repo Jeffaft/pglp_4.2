@@ -3,9 +3,9 @@ import java.util.Map;
 import java.util.Stack;
 
 public class Interpreteur {
-	private final Map<String, Command> commands;
-	private Stack<Double> stack;
-	private Stack<Double> undoStack;
+	protected final Map<String, Command> commands;
+	protected Stack<Double> stack;
+	protected Stack<Double> undoStack;
 	
 	public Interpreteur() {
 		this.commands = new HashMap<>();
