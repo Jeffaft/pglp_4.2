@@ -23,7 +23,7 @@ public class SaisieRPN {
 				System.out.println("Pas assez d'opérandes.");
 			}
 		}
-		else if(saisie.equals("undo") || saisie.equals("quit")) {
+		else if(saisie.equals("undo") || saisie.equals("quit") || saisie.equals("exit") ) {
 			this.moteur.executeCommand(saisie);
 			
 		}

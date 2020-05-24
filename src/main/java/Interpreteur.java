@@ -35,6 +35,10 @@ public class Interpreteur {
 			System.out.println("Fin du programme.");
 			System.exit(0);
 		});
+		i.addCommand("exit", () -> {
+			System.out.println("Fin du programme.");
+			System.exit(0);
+		});
 		
 	}
 	
